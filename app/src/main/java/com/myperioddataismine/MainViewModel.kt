@@ -2,10 +2,11 @@ package com.myperioddataismine
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import java.util.Date
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val encryptedDatabase = EncryptedDatabase(application)
-    private var userData: UserData? = null
+    private var dayData: DayData? = null
 
     fun encryptedDatabaseExists(): Boolean {
         return encryptedDatabase.exists()
@@ -21,20 +22,24 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun deleteDatabase() {
         encryptedDatabase.delete()
-        userData = null
+        dayData = null
     }
 
     fun changePasscode(passcode: String) {
         encryptedDatabase.changePasscode(passcode)
     }
 
-    fun getUserData(): UserData {
-        val data = userData ?: encryptedDatabase.getUserData()
-        userData = userData ?: data
+    fun getDayData(date: Date): DayData {
+        val data = dayData ?: encryptedDatabase.getDayData(date)
+        dayData = if (data.date != date) {
+            encryptedDatabase.getDayData(date)
+        } else {
+            data
+        }
         return data
     }
 
-    fun saveUserData(userData: UserData) {
-        encryptedDatabase.saveUserData(userData)
+    fun saveDayData(dayData: DayData) {
+        encryptedDatabase.saveDayData(dayData)
     }
 }

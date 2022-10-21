@@ -9,10 +9,13 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import java.util.Calendar
+import java.util.Date
 
 class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by viewModels()
     private var passcodeState = PasscodeState.None
+    private var date: Date = Calendar.getInstance().time
 
     private enum class PasscodeState {
         None,
@@ -98,11 +101,11 @@ class MainActivity : AppCompatActivity() {
         when (passcodeState) {
             PasscodeState.ChangePasscode -> {
                 viewModel.changePasscode(passcode)
-                viewUserData()
+                viewDayData()
             }
             else -> {
                 if (viewModel.openDatabase(passcode)) {
-                    viewUserData()
+                    viewDayData()
                 } else {
                     databaseErasePrompt()
                 }
@@ -124,28 +127,39 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 
-    private fun viewUserData() {
+    private fun viewDayData() {
+        val dayData = viewModel.getDayData(date)
+        val dayDataFragment = DayDataFragment(dayData)
         supportFragmentManager.commit {
             setReorderingAllowed(true)
-            replace<UserDataViewFragment>(R.id.main_container)
+            replace(R.id.main_container, dayDataFragment)
         }
         passcodeState = PasscodeState.None
         invalidateMenu()
     }
 
-    fun editUserData() {
+    fun editField(field: DayData.Field, currentValue: Int) {
+        val editFieldFragment = EditFieldFragment(field, currentValue)
         supportFragmentManager.commit {
             setReorderingAllowed(true)
-            replace<UserDataEditFragment>(R.id.main_container)
+            replace(R.id.main_container, editFieldFragment)
+            addToBackStack(null)
         }
     }
 
-    fun getUserData(): UserData {
-        return viewModel.getUserData()
+    fun saveField(field: DayData.Field, value: Int) {
+        val dayData = viewModel.getDayData(date)
+        when (field) {
+            DayData.Field.FlowLevel -> dayData.flowLevel = value
+            DayData.Field.Moods -> dayData.moods = value
+            DayData.Field.Symptoms -> dayData.symptoms = value
+        }
+        viewModel.saveDayData(dayData)
+        back()
     }
 
-    fun saveUserData(userData: UserData) {
-        viewModel.saveUserData(userData)
-        viewUserData()
+    fun back() {
+        supportFragmentManager.popBackStack()
     }
+
 }
