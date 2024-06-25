@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">My Period Data Is Mine!</string>
+    <string name="welcome_message">Welcome to\nMy Period Data is Mine!\nThe only and best free, secure and open source period tracking application.</string>
+    <string name="name_hint">The name you like to be called by</string>
+    <string name="encrypt_text">Enter a secret passcode that you will use to decrypt your data</string>
     <string name="decrypt_text">Enter your passcode to decrypt your data</string>
     <string name="number_0">0</string>
     <string name="number_1">1</string>
