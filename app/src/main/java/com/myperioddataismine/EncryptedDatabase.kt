@@ -32,6 +32,10 @@ class EncryptedDatabase(private val context: Context) {
         databaseFile.delete()
     }
 
+    fun changePasscode(passcode: String) {
+        databaseHelper!!.writableDatabase.changePassword(passcode)
+    }
+
     fun getUserData(): UserData {
         return UserData.get(databaseHelper!!.writableDatabase)
     }
