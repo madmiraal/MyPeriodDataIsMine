@@ -96,6 +96,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun tryPasscode(passcode: String) {
+        if (passcode.isEmpty()) {
+            blankPasscode()
+            return
+        }
         when (passcodeState) {
             PasscodeState.ChangePasscode -> {
                 viewModel.changePasscode(passcode)
@@ -119,15 +123,30 @@ class MainActivity : AppCompatActivity() {
 
     private fun databaseErasePrompt() {
         AlertDialog.Builder(this)
-            .setTitle("Erase data?")
-            .setMessage("Unable to decrypt data!")
-            .setPositiveButton("Retry") { _, _ ->
+            .setTitle(R.string.erase_data_question)
+            .setMessage(resources.getString(R.string.unable_to_decrypt_message))
+            .setPositiveButton(resources.getString(R.string.retry)) { _, _ ->
                 decryptDatabase()
             }
-            .setNegativeButton("Erase") { _, _ ->
+            .setNegativeButton(resources.getString(R.string.erase)) { _, _ ->
                 viewModel.deleteDatabase()
                 createDatabase()
             }
+            .show()
+    }
+
+    private fun blankPasscode() {
+        val message = when (passcodeState) {
+            PasscodeState.CreateDatabase, PasscodeState.ChangePasscode ->
+                resources.getString(R.string.blank_passcode_encrypt_message)
+            PasscodeState.DecryptDatabase ->
+                resources.getString(R.string.blank_passcode_decrypt_message)
+            PasscodeState.None -> throw Exception("Passcode state should never be None")
+        }
+        AlertDialog.Builder(this)
+            .setTitle(resources.getString(R.string.blank_passcode))
+            .setMessage(message)
+            .setPositiveButton(resources.getString(R.string.ok)) { _, _ -> }
             .show()
     }
 
