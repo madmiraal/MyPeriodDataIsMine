@@ -1,10 +1,15 @@
 <resources>
     <string name="app_name">My Period Data Is Mine!</string>
+    <string name="blank_passcode">Blank passcode</string>
+    <string name="blank_passcode_decrypt_message">A passcode is required to decrypt the database!</string>
+    <string name="blank_passcode_encrypt_message">A passcode is required to encrypt the database!</string>
     <string name="change_passcode">Change passcode</string>
     <string name="change_passcode_text">Enter your new secret passcode</string>
     <string name="decrypt_text">Enter your passcode to decrypt your data</string>
     <string name="delete">Del</string>
     <string name="edit">Edit</string>
+    <string name="erase">Erase</string>
+    <string name="erase_data_question">Erase data?</string>
     <string name="encrypt_text">Enter a secret passcode that you will use to decrypt your data</string>
     <string name="get_started">Get Started!</string>
     <string name="image_logo_description">My Period Data Is Mine! logo</string>
@@ -22,8 +27,10 @@
     <string name="number_9">9</string>
     <string name="ok">OK</string>
     <string name="passcode">Passcode</string>
+    <string name="retry">Retry</string>
     <string name="save">Save</string>
     <string name="slogan">The only private, encrypted and free period tracking app.</string>
+    <string name="unable_to_decrypt_message">Unable to decrypt data!</string>
     <string name="user_data">User data</string>
     <string name="welcome_message">Welcome to\nMy Period Data is Mine!</string>
 </resources>
