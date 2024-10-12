@@ -24,6 +24,7 @@ class DayDataFragment : Fragment(R.layout.day_data_fragment) {
 
         val mainActivity = context as MainActivity
         val dayData = viewModel.getDayData()
+        val calendarIcon = view.findViewById<ImageView>(R.id.calendar_icon)
         val previousIcon = view.findViewById<ImageView>(R.id.previous_day)
         val nextIcon = view.findViewById<ImageView>(R.id.next_day)
         val flowLevelLayout = view.findViewById<LinearLayout>(R.id.flow_level)
@@ -35,6 +36,7 @@ class DayDataFragment : Fragment(R.layout.day_data_fragment) {
         setMoods(moodsLayout, dayData.moods)
         setSymptoms(symptomsLayout, dayData.symptoms)
 
+        calendarIcon.setOnClickListener { mainActivity.viewCalendar() }
         previousIcon.setOnClickListener { mainActivity.viewPreviousDay() }
         if (dayData.isToday()) {
             nextIcon.setColorFilter(Color.LTGRAY)
