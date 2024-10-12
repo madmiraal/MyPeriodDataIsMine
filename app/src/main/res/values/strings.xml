@@ -38,6 +38,7 @@
     <string name="name">Name</string>
     <string name="name_hint">Your preferred name</string>
     <string name="next_day">Next day</string>
+    <string name="next_month">Next month</string>
     <string name="none">None</string>
     <string name="november">November</string>
     <string name="number_0">0</string>
@@ -55,12 +56,14 @@
     <string name="omg">OMG</string>
     <string name="passcode">Passcode</string>
     <string name="previous_day">Previous day</string>
+    <string name="previous_month">Previous month</string>
     <string name="sad">Sad</string>
     <string name="save">Save</string>
     <string name="select_flow_level">Select flow level</string>
     <string name="select_moods">Select moods</string>
     <string name="select_symptoms">Select symptoms</string>
     <string name="september">September</string>
+    <string name="show_calendar_view">Show calendar view</string>
     <string name="sick">Sick</string>
     <string name="slogan">The only private, encrypted and free period tracking app.</string>
     <string name="stomach_upset">Stomach upset</string>

@@ -131,6 +131,14 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 
+    fun viewCalendar() {
+        val calendarFragment = CalendarFragment(viewModel.date)
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace(R.id.main_container, calendarFragment)
+        }
+    }
+
     private fun viewDayData() {
         supportFragmentManager.commit {
             setReorderingAllowed(true)
