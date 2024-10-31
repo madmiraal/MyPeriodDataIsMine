@@ -23,10 +23,13 @@ class DayData {
     companion object: Table {
         val bleedingValues = arrayOf (
             R.string.none to R.drawable.none,
+            R.string.spotting to R.drawable.spotting,
             R.string.light to R.drawable.drop1,
             R.string.moderate to R.drawable.drop2,
             R.string.heavy to R.drawable.drop3,
-            R.string.omg to R.drawable.drop4
+            R.string.small_clots to R.drawable.small_clots,
+            R.string.big_clots to R.drawable.big_clots,
+            R.string.omg to R.drawable.omg
         )
 
         val moodValues = arrayOf(
