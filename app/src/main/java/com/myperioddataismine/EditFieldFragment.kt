@@ -38,7 +38,7 @@ class EditFieldFragment: Fragment(R.layout.edit_field_fragment) {
 
         editFieldHeading.text = editFieldHeadingForField(field)
         val entries = entriesForField(field)
-        val entryType = entryTypeForField(field)
+        val entryType = EntryType.MultipleEntry
 
         entryAdapter = EntryAdapter(view.context, entries, entryType)
         listView.adapter = entryAdapter
@@ -70,14 +70,6 @@ class EditFieldFragment: Fragment(R.layout.edit_field_fragment) {
             DayData.Field.Bleeding -> DayData.bleedingValues
             DayData.Field.Moods -> DayData.moodValues
             DayData.Field.Symptoms -> DayData.symptomValues
-        }
-    }
-
-    private fun entryTypeForField(field: DayData.Field): EntryType {
-        return when (field) {
-            DayData.Field.Bleeding -> EntryType.SingleEntry
-            DayData.Field.Moods -> EntryType.MultipleEntry
-            DayData.Field.Symptoms -> EntryType.MultipleEntry
         }
     }
 
