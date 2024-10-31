@@ -50,15 +50,16 @@
             android:layout_margin="5dp"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:text="@string/flow_level"
+            android:text="@string/bleeding"
         />
-        <LinearLayout
-            android:id="@+id/flow_level"
+        <com.google.android.flexbox.FlexboxLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/bleeding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            app:flexWrap="wrap"
         >
-        </LinearLayout>
+        </com.google.android.flexbox.FlexboxLayout>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
