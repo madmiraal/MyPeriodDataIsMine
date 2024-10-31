@@ -6,6 +6,7 @@
     <string name="april">April</string>
     <string name="august">August</string>
     <string name="backache">Backache</string>
+    <string name="big_clots">Big clots</string>
     <string name="bleeding">Bleeding</string>
     <string name="cancel">Cancel</string>
     <string name="change_passcode">Change passcode</string>
@@ -63,6 +64,8 @@
     <string name="september">September</string>
     <string name="sick">Sick</string>
     <string name="slogan">The only private, encrypted and free period tracking app.</string>
+    <string name="small_clots">Small clots</string>
+    <string name="spotting">Spotting</string>
     <string name="stomach_upset">Stomach upset</string>
     <string name="sweat">Sweat</string>
     <string name="symptoms">Symptoms</string>
