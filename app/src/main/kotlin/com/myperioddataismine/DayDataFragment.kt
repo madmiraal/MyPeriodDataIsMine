@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.isEmpty
 import androidx.fragment.app.Fragment
@@ -26,12 +25,12 @@ class DayDataFragment : Fragment(R.layout.day_data_fragment) {
         val dayData = viewModel.getDayData()
         val previousIcon = view.findViewById<ImageView>(R.id.previous_day)
         val nextIcon = view.findViewById<ImageView>(R.id.next_day)
-        val flowLevelLayout = view.findViewById<LinearLayout>(R.id.flow_level)
+        val bleedingLayout = view.findViewById<FlexboxLayout>(R.id.bleeding)
         val moodsLayout = view.findViewById<FlexboxLayout>(R.id.moods)
         val symptomsLayout = view.findViewById<FlexboxLayout>(R.id.symptoms)
 
         setDate(view, dayData.date)
-        setFlowLevel(flowLevelLayout, dayData.flowLevel)
+        setBleeding(bleedingLayout, dayData.bleeding)
         setMoods(moodsLayout, dayData.moods)
         setSymptoms(symptomsLayout, dayData.symptoms)
 
@@ -41,8 +40,8 @@ class DayDataFragment : Fragment(R.layout.day_data_fragment) {
         } else {
             nextIcon.setOnClickListener { mainActivity.viewNextDay() }
         }
-        flowLevelLayout.setOnClickListener {
-            mainActivity.editField(DayData.Field.FlowLevel, dayData.flowLevel)
+        bleedingLayout.setOnClickListener {
+            mainActivity.editField(DayData.Field.Bleeding, dayData.bleeding)
         }
         moodsLayout.setOnClickListener {
             mainActivity.editField(DayData.Field.Moods, dayData.moods)
@@ -59,11 +58,14 @@ class DayDataFragment : Fragment(R.layout.day_data_fragment) {
         dateTextView.text = dateString
     }
 
-    private fun setFlowLevel(flowLevelViewGroup: ViewGroup, flowLevel: Int) {
-        if (flowLevel != 0 && flowLevel in DayData.flowLevelValues.indices) {
-            addImage(flowLevelViewGroup, DayData.flowLevelValues[flowLevel])
-        } else {
-            addText(flowLevelViewGroup, R.string.none)
+    private fun setBleeding(bleedingViewGroup: ViewGroup, bleeding: Int) {
+        for (bleedingIndex in DayData.bleedingValues.indices) {
+            if (((bleeding shr bleedingIndex) and 1) != 0) {
+                addImage(bleedingViewGroup, DayData.bleedingValues[bleedingIndex])
+            }
+        }
+        if (bleedingViewGroup.isEmpty()) {
+            addText(bleedingViewGroup, R.string.none)
         }
     }
 

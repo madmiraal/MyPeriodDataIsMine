@@ -164,7 +164,7 @@ class MainActivity : AppCompatActivity() {
     fun saveField(field: DayData.Field, value: Int) {
         val dayData = viewModel.getDayData()
         when (field) {
-            DayData.Field.FlowLevel -> dayData.flowLevel = value
+            DayData.Field.Bleeding -> dayData.bleeding = value
             DayData.Field.Moods -> dayData.moods = value
             DayData.Field.Symptoms -> dayData.symptoms = value
         }
