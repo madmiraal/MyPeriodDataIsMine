@@ -11,7 +11,7 @@ class DatabaseHelper(context: Context, filename: String, passcode: String) :
         passcode,
         null,
         DB_VERSION,
-        2,
+        MINIMUM_DB_VERSION,
         null,
         null,
         true
@@ -37,6 +37,7 @@ class DatabaseHelper(context: Context, filename: String, passcode: String) :
     }
 
     companion object {
-        const val DB_VERSION: Int = 2
+        const val DB_VERSION: Int = 3
+        const val MINIMUM_DB_VERSION: Int = 2
     }
 }

@@ -4,6 +4,8 @@
     <string name="angry">Angry</string>
     <string name="app_name">My Period Data Is Mine!</string>
     <string name="backache">Backache</string>
+    <string name="big_clots">Big clots</string>
+    <string name="bleeding">Bleeding</string>
     <string name="cancel">Cancel</string>
     <string name="change_passcode">Change passcode</string>
     <string name="change_passcode_text">Enter your new secret passcode</string>
@@ -11,7 +13,6 @@
     <string name="delete">Del</string>
     <string name="encrypt_text">Enter a secret passcode that you will use to decrypt your data</string>
     <string name="fatigue">Fatigue</string>
-    <string name="flow_level">Flow Level</string>
     <string name="get_started">Get Started!</string>
     <string name="happy">Happy</string>
     <string name="headache">Headache</string>
@@ -43,11 +44,13 @@
     <string name="previous_day">Previous day</string>
     <string name="sad">Sad</string>
     <string name="save">Save</string>
-    <string name="select_flow_level">Select flow level</string>
+    <string name="select_bleeding">Select bleeding</string>
     <string name="select_moods">Select moods</string>
     <string name="select_symptoms">Select symptoms</string>
     <string name="sick">Sick</string>
     <string name="slogan">The only private, encrypted and free period tracking app.</string>
+    <string name="small_clots">Small clots</string>
+    <string name="spotting">Spotting</string>
     <string name="stomach_upset">Stomach upset</string>
     <string name="sweat">Sweat</string>
     <string name="symptoms">Symptoms</string>
