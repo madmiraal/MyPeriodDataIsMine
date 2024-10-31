@@ -50,10 +50,10 @@
             android:layout_margin="5dp"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:text="@string/flow_level"
+            android:text="@string/bleeding"
         />
         <LinearLayout
-            android:id="@+id/flow_level"
+            android:id="@+id/bleeding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

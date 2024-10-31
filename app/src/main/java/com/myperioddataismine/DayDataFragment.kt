@@ -25,12 +25,12 @@ class DayDataFragment : Fragment(R.layout.day_data_fragment) {
         val dayData = viewModel.getDayData()
         val previousIcon = view.findViewById<ImageView>(R.id.previous_day)
         val nextIcon = view.findViewById<ImageView>(R.id.next_day)
-        val flowLevelLayout = view.findViewById<LinearLayout>(R.id.flow_level)
+        val bleedingLayout = view.findViewById<LinearLayout>(R.id.bleeding)
         val moodsLayout = view.findViewById<FlexboxLayout>(R.id.moods)
         val symptomsLayout = view.findViewById<FlexboxLayout>(R.id.symptoms)
 
         setDate(view, dayData.date)
-        setFlowLevel(flowLevelLayout, dayData.flowLevel)
+        setBleeding(bleedingLayout, dayData.bleeding)
         setMoods(moodsLayout, dayData.moods)
         setSymptoms(symptomsLayout, dayData.symptoms)
 
@@ -40,8 +40,8 @@ class DayDataFragment : Fragment(R.layout.day_data_fragment) {
         } else {
             nextIcon.setOnClickListener { mainActivity.viewNextDay() }
         }
-        flowLevelLayout.setOnClickListener {
-            mainActivity.editField(DayData.Field.FlowLevel, dayData.flowLevel)
+        bleedingLayout.setOnClickListener {
+            mainActivity.editField(DayData.Field.Bleeding, dayData.bleeding)
         }
         moodsLayout.setOnClickListener {
             mainActivity.editField(DayData.Field.Moods, dayData.moods)
@@ -58,11 +58,11 @@ class DayDataFragment : Fragment(R.layout.day_data_fragment) {
         dateTextView.text = dateString
     }
 
-    private fun setFlowLevel(flowLevelViewGroup: ViewGroup, flowLevel: Int) {
-        if (flowLevel != 0 && flowLevel in DayData.flowLevelValues.indices) {
-            addImage(flowLevelViewGroup, DayData.flowLevelValues[flowLevel])
+    private fun setBleeding(bleedingViewGroup: ViewGroup, bleeding: Int) {
+        if (bleeding != 0 && bleeding in DayData.bleedingValues.indices) {
+            addImage(bleedingViewGroup, DayData.bleedingValues[bleeding])
         } else {
-            addText(flowLevelViewGroup, R.string.none)
+            addText(bleedingViewGroup, R.string.none)
         }
     }
 
