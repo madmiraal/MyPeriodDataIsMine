@@ -59,7 +59,7 @@ class EditFieldFragment: Fragment(R.layout.edit_field_fragment) {
 
     private fun editFieldHeadingForField(field: DayData.Field): String {
         return when (field) {
-            DayData.Field.FlowLevel -> getString(R.string.select_flow_level)
+            DayData.Field.Bleeding -> getString(R.string.select_bleeding)
             DayData.Field.Moods -> getString(R.string.select_moods)
             DayData.Field.Symptoms -> getString(R.string.select_symptoms)
         }
@@ -67,7 +67,7 @@ class EditFieldFragment: Fragment(R.layout.edit_field_fragment) {
 
     private fun entriesForField(field: DayData.Field): Array<Pair<Int,Int>> {
         return when (field) {
-            DayData.Field.FlowLevel -> DayData.flowLevelValues
+            DayData.Field.Bleeding -> DayData.bleedingValues
             DayData.Field.Moods -> DayData.moodValues
             DayData.Field.Symptoms -> DayData.symptomValues
         }
@@ -75,7 +75,7 @@ class EditFieldFragment: Fragment(R.layout.edit_field_fragment) {
 
     private fun entryTypeForField(field: DayData.Field): EntryType {
         return when (field) {
-            DayData.Field.FlowLevel -> EntryType.SingleEntry
+            DayData.Field.Bleeding -> EntryType.SingleEntry
             DayData.Field.Moods -> EntryType.MultipleEntry
             DayData.Field.Symptoms -> EntryType.MultipleEntry
         }

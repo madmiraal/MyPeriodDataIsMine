@@ -5,12 +5,12 @@ import java.util.Calendar
 
 class DayData {
     var date: Calendar = Calendar.getInstance()
-    var flowLevel: Int = 0
+    var bleeding: Int = 0
     var moods: Int = 0
     var symptoms: Int = 0
 
     enum class Field {
-        FlowLevel,
+        Bleeding,
         Moods,
         Symptoms
     }
@@ -21,7 +21,7 @@ class DayData {
     }
 
     companion object: Table {
-        val flowLevelValues = arrayOf (
+        val bleedingValues = arrayOf (
             R.string.none to R.drawable.none,
             R.string.light to R.drawable.drop1,
             R.string.moderate to R.drawable.drop2,
@@ -57,7 +57,7 @@ class DayData {
         // Table columns
         private const val ID: String = "_id"
         private const val DATE: String = "Date"
-        private const val FLOW_LEVEL: String = "Flow Level"
+        private const val BLEEDING: String = "Bleeding"
         private const val MOOD: String = "Mood"
         private const val SYMPTOMS: String = "Symptoms"
 
@@ -66,7 +66,7 @@ class DayData {
                 "CREATE TABLE \"$PERIOD_DATA\" (" +
                     "\"$ID\" INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "\"$DATE\" INTEGER NOT NULL UNIQUE, " +
-                    "\"$FLOW_LEVEL\" INTEGER NOT NULL, " +
+                    "\"$BLEEDING\" INTEGER NOT NULL, " +
                     "\"$MOOD\" INTEGER NOT NULL, " +
                     "\"$SYMPTOMS\" INTEGER NOT NULL" +
                 ");"
@@ -85,7 +85,7 @@ class DayData {
             dayData.date = date.clone() as Calendar
             val cursor = db.query(
                 "SELECT " +
-                "\"$FLOW_LEVEL\", " +
+                "\"$BLEEDING\", " +
                 "\"$MOOD\", " +
                 "\"$SYMPTOMS\" " +
                 "FROM \"$PERIOD_DATA\" " +
@@ -93,7 +93,7 @@ class DayData {
             )
             cursor.moveToFirst()
             if (cursor.isAfterLast) return dayData
-            dayData.flowLevel = cursor.getInt(0)
+            dayData.bleeding = cursor.getInt(0)
             dayData.moods = cursor.getInt(1)
             dayData.symptoms = cursor.getInt(2)
             return dayData
@@ -103,13 +103,13 @@ class DayData {
             db.execSQL(
                 "INSERT OR REPLACE INTO \"$PERIOD_DATA\" (" +
                     "\"$DATE\", " +
-                    "\"$FLOW_LEVEL\", " +
+                    "\"$BLEEDING\", " +
                     "\"$MOOD\", " +
                     "\"$SYMPTOMS\"" +
                 ") " +
                 "VALUES(" +
                     "'${intForDate(dayData.date)}', " +
-                    "${dayData.flowLevel}, " +
+                    "${dayData.bleeding}, " +
                     "${dayData.moods}, " +
                     "${dayData.symptoms}" +
                 ");"
