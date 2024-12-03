@@ -63,6 +63,8 @@ class DayData {
         private const val BLEEDING: String = "Bleeding"
         private const val MOOD: String = "Mood"
         private const val SYMPTOMS: String = "Symptoms"
+        // V2 table columns
+        private const val FLOW_LEVEL: String = "Flow Level"
 
         override fun createTable(db: SQLiteDatabase) {
             db.execSQL(
@@ -77,10 +79,23 @@ class DayData {
         }
 
         override fun upgradeTable(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-            db.execSQL(
-                "DROP TABLE IF EXISTS \"$PERIOD_DATA\";"
-            )
-            createTable(db)
+            var currentVersion = oldVersion
+            while (currentVersion < newVersion) {
+                when (currentVersion) {
+                    2 -> {
+                        upgradeTableV2toV3(db)
+                        currentVersion++
+                    }
+                    else -> {
+                        println("Failed to upgrade database from $oldVersion to $newVersion")
+                        println("Creating a new database")
+                        db.execSQL(
+                            "DROP TABLE IF EXISTS \"$PERIOD_DATA\";"
+                        )
+                        createTable(db)
+                    }
+                }
+            }
         }
 
         fun get(db:SQLiteDatabase, date: Calendar): DayData {
@@ -110,7 +125,7 @@ class DayData {
                     "\"$MOOD\", " +
                     "\"$SYMPTOMS\"" +
                 ") " +
-                "VALUES(" +
+                "VALUES (" +
                     "'${intForDate(dayData.date)}', " +
                     "${dayData.bleeding}, " +
                     "${dayData.moods}, " +
@@ -125,6 +140,25 @@ class DayData {
             val day = date.get(Calendar.DAY_OF_MONTH)
             val result = year * 10000 + month * 100 + day
             return result
+        }
+
+        private fun upgradeTableV2toV3(db: SQLiteDatabase) {
+            db.execSQL("ALTER TABLE \"$PERIOD_DATA\" RENAME TO \"Old $PERIOD_DATA\"")
+            createTable(db)
+            db.execSQL(
+                "INSERT INTO \"$PERIOD_DATA\" (" +
+                    "\"$DATE\", " +
+                    "\"$BLEEDING\", " +
+                    "\"$MOOD\", " +
+                    "\"$SYMPTOMS\"" +
+                ") SELECT " +
+                "\"$DATE\", " +
+                "1 << \"$FLOW_LEVEL\", " +
+                "\"$MOOD\", " +
+                "\"$SYMPTOMS\" " +
+                "FROM \"Old $PERIOD_DATA\";"
+            )
+            db.execSQL("DROP TABLE \"Old $PERIOD_DATA\"")
         }
     }
 }
