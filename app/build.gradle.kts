@@ -34,6 +34,12 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+
+    lint {
+        checkAllWarnings = true
+        warningsAsErrors = true
+        abortOnError = true
+    }
 }
 
 dependencies {
