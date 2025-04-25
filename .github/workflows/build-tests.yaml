@@ -9,8 +9,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  android-builds:
-    name: ${{ matrix.os }} build
+  build-tests:
+    name: ${{ matrix.os }} build test
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -33,3 +33,29 @@ jobs:
         with:
           name: ${{ matrix.os }}-build-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
+
+  lint-tests:
+    name: ${{ matrix.os }} lint test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: zulu
+          java-version: 17
+
+      - name: Gradle build
+        run: ./gradlew lint
+
+      - name: Upload Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.os }}-reports
+          path: app/build/reports/
