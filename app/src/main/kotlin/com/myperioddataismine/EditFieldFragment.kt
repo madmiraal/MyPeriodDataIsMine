@@ -67,7 +67,7 @@ class EditFieldFragment: Fragment(R.layout.edit_field_fragment) {
 
     private fun entriesForField(field: DayData.Field): Array<Pair<Int,Int>> {
         return when (field) {
-            DayData.Field.Bleeding -> DayData.bleedingValues
+            DayData.Field.Bleeding -> DayData.flowLevelValues
             DayData.Field.Moods -> DayData.moodValues
             DayData.Field.Symptoms -> DayData.symptomValues
         }

@@ -59,9 +59,9 @@ class DayDataFragment : Fragment(R.layout.day_data_fragment) {
     }
 
     private fun setBleeding(bleedingViewGroup: ViewGroup, bleeding: Int) {
-        for (bleedingIndex in DayData.bleedingValues.indices) {
+        for (bleedingIndex in DayData.flowLevelValues.indices) {
             if (((bleeding shr bleedingIndex) and 1) != 0) {
-                addImage(bleedingViewGroup, DayData.bleedingValues[bleedingIndex])
+                addImage(bleedingViewGroup, DayData.flowLevelValues[bleedingIndex])
             }
         }
         if (bleedingViewGroup.isEmpty()) {
