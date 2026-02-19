@@ -9,7 +9,6 @@
     <string name="change_passcode_text">Enter your new secret passcode</string>
     <string name="decrypt_text">Enter your passcode to decrypt your data</string>
     <string name="delete">Del</string>
-    <string name="edit">Edit</string>
     <string name="encrypt_text">Enter a secret passcode that you will use to decrypt your data</string>
     <string name="fatigue">Fatigue</string>
     <string name="flow_level">Flow Level</string>
@@ -26,8 +25,6 @@
     <string name="moderate">Moderate</string>
     <string name="mood">Mood</string>
     <string name="muscle_pain">Muscle pain</string>
-    <string name="name">Name</string>
-    <string name="name_hint">Your preferred name</string>
     <string name="next_day">Next day</string>
     <string name="none">None</string>
     <string name="number_0">0</string>
@@ -55,7 +52,6 @@
     <string name="sweat">Sweat</string>
     <string name="symptoms">Symptoms</string>
     <string name="tired">Tired</string>
-    <string name="user_data">User data</string>
     <string name="vomit">Vomit</string>
     <string name="welcome_message">Welcome to\nMy Period Data is Mine!</string>
 </resources>
