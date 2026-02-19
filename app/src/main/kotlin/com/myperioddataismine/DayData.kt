@@ -22,7 +22,7 @@ class DayData {
 
     companion object: Table {
         val flowLevelValues = arrayOf (
-            "Nothing" to R.drawable.nothing,
+            R.string.nothing to R.drawable.nothing,
             R.string.spotting to R.drawable.spotting,
             R.string.light to R.drawable.drop1,
             R.string.moderate to R.drawable.drop2,
@@ -32,64 +32,64 @@ class DayData {
 
         val moodValues = arrayOf(
             R.string.happy to R.drawable.happy,
-            "Energised" to R.drawable.energised,
-            "Relaxed" to R.drawable.relaxed,
+            R.string.energised to R.drawable.energised_placeholder,
+            R.string.relaxed to R.drawable.relaxed_placeholder,
             R.string.sad to R.drawable.sad,
-            "Unmotivated" to R.drawable.unmotivated,
-            "Pessimistic" to R.drawable.pessimistic,
-            "Irritable" to R.drawable.irritable,
-            R.string.angry to R.drawable.angry
-            "Anxious" to R.drawable.anxious
-            "Stressed" to R.drawable.stressed
+            R.string.unmotivated to R.drawable.unmotivated_placeholder,
+            R.string.pessimistic to R.drawable.pessimistic_placeholder,
+            R.string.irritable to R.drawable.irritabie,
+            R.string.angry to R.drawable.angry,
+            R.string.anxious to R.drawable.anxious_placeholder,
+            R.string.stressed to R.drawable.stressed_placeholder
         )
 
         val painValues = arrayOf(
-            "Abdominal pain" to R.drawable.abdominal_pain,
-            "Backache" to R.drawable.backache,
-            "Cramps" to R.drawable.cramps,
-            "Headache" to R.drawable.headache,
-            "Joint pain" to R.drawable.joint_pain,
-            "Migraine" to R.drawable.migraine,
-            "Muscle pain" to R.drawable.muscle_pain,
-            "Ovulation Pain" to R.drawable.ovulation_pain,
-            "Tender breasts" to R.drawable.tender_breasts
+            R.string.abdominal_pain to R.drawable.abdominal_pain,
+            R.string.backache to R.drawable.backache,
+            R.string.cramps to R.drawable.cramps_placeholder,
+            R.string.headache to R.drawable.headache,
+            R.string.joint_pain to R.drawable.joint_pain_placeholder,
+            R.string.migraine to R.drawable.migraine_placeholder,
+            R.string.muscle_pain to R.drawable.muscle_pain,
+            R.string.ovulation_pain to R.drawable.ovulation_pain_placeholder,
+            R.string.tender_breasts to R.drawable.tender_breasts_placeholder
         )
         val symptomValues = arrayOf(
-            "Acne" to R.drawable.acne,
-            "Bloated", to R.drawable.bloated,
-            "Burning Mouth" to R.drawable.burning_mouth,
-            "Constipation" to R.drawable.constipation,
-            "Cravings" to R.drawable.cravings,
-            "Diarrhoea" to R.drawable.diarrhoea,
-            "Discharge" to R.drawable.discharge,
-            "Dizziness" to R.drawable.dizziness,
-            "Fatigued" to R.drawable.fatigued,
-            "Hot flashes" to R.drawable.hot_flashes,
-            "Insomnia" to R.drawable.insomnia,
-            "Itchiness" to R.drawable.itchiness,
-            "Nausea" to R.drawable.nausea,
-            "Stomach upset" to R.drawable.stomach_upset,
-            "Sweating" to R.drawable.sweating,
-            "UTI" to R.drawable.uti,
-            "Vaginal dryness" to R.drawable.vaginal_dryness,
-            "Vomiting" to R.drawable.vomiting
+            R.string.acne to R.drawable.acne_placeholder,
+            R.string.bloated to R.drawable.bloated,
+            R.string.burning_mouth to R.drawable.burning_mouth_placeholder,
+            R.string.constipation to R.drawable.constipation_placeholder,
+            R.string.cravings to R.drawable.cravings_placeholder,
+            R.string.diarrhoea to R.drawable.diarrhoea_placeholder,
+            R.string.discharge to R.drawable.discharge_placeholder,
+            R.string.dizziness to R.drawable.dizziness_placeholder,
+            R.string.fatigued to R.drawable.fatigued,
+            R.string.hot_flashes to R.drawable.hot_flashes_placeholder,
+            R.string.insomnia to R.drawable.insomnia_placeholder,
+            R.string.itchiness to R.drawable.itchiness_placeholder,
+            R.string.nausea to R.drawable.nausea_placeholder,
+            R.string.stomach_upset to R.drawable.stomach_upset,
+            R.string.sweating to R.drawable.sweating,
+            R.string.uti to R.drawable.uti_placeholder,
+            R.string.vaginal_dryness to R.drawable.vaginal_dryness_placeholder,
+            R.string.vomiting to R.drawable.vomiting
         )
 
         val activeValues = arrayOf(
-            "Solo" to R.drawable.solo,
-            "Partner" to R.drawable.partner,
-            "Vaginal" to R.drawable.vaginal,
-            "Oral" to R.drawable.oral,
-            "Anal" to R.drawable.anal,
-            "Toys" to R.drawable.toys
+            R.string.solo to R.drawable.solo_placeholder,
+            R.string.partner to R.drawable.partner_placeholder,
+            R.string.vaginal to R.drawable.vaginal_placeholder,
+            R.string.oral to R.drawable.oral_placeholder,
+            R.string.anal to R.drawable.anal_placeholder,
+            R.string.toys to R.drawable.toys_placeholder
         )
 
         val protectionValues = arrayOf(
-            "Condom" to R.drawable.condom,
-            "Diaphragm" to R.drawable.diaphragm,
-            "Sponge" to R.drawable.sponge,
-            "Spermicide" to R.drawable.spermicide,
-            "Emergency Contraception" to R.drawable.emergency_contraception
+            R.string.condom to R.drawable.condom_placeholder,
+            R.string.diaphragm to R.drawable.diaphragm_placeholder,
+            R.string.sponge to R.drawable.sponge_placeholder,
+            R.string.spermicide to R.drawable.spermicide_placeholder,
+            R.string.emergency_contraception to R.drawable.emergency_contraception_placeholder
         )
 
         // Table Name

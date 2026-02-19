@@ -65,7 +65,7 @@ class DayDataFragment : Fragment(R.layout.day_data_fragment) {
             }
         }
         if (bleedingViewGroup.isEmpty()) {
-            addText(bleedingViewGroup, R.string.none)
+            addText(bleedingViewGroup, R.string.nothing)
         }
     }
 
@@ -76,7 +76,7 @@ class DayDataFragment : Fragment(R.layout.day_data_fragment) {
             }
         }
         if (moodsViewGroup.isEmpty()) {
-            addText(moodsViewGroup, R.string.none)
+            addText(moodsViewGroup, R.string.nothing)
         }
     }
 
@@ -87,7 +87,7 @@ class DayDataFragment : Fragment(R.layout.day_data_fragment) {
             }
         }
         if (symptomsViewGroup.isEmpty()) {
-            addText(symptomsViewGroup, R.string.none)
+            addText(symptomsViewGroup, R.string.nothing)
         }
     }
 
