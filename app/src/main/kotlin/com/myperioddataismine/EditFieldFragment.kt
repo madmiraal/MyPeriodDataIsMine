@@ -69,7 +69,7 @@ class EditFieldFragment: Fragment(R.layout.edit_field_fragment) {
         return when (field) {
             DayData.Field.Bleeding -> DayData.flowLevelValues
             DayData.Field.Moods -> DayData.moodValues
-            DayData.Field.Symptoms -> DayData.symptomValues
+            DayData.Field.Symptoms -> DayData.symptomsValues
         }
     }
 

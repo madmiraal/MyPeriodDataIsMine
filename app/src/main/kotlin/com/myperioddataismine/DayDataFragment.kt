@@ -81,9 +81,9 @@ class DayDataFragment : Fragment(R.layout.day_data_fragment) {
     }
 
     private fun setSymptoms(symptomsViewGroup: ViewGroup, symptoms: Int) {
-        for (symptomIndex in DayData.symptomValues.indices) {
+        for (symptomIndex in DayData.symptomsValues.indices) {
             if (((symptoms shr symptomIndex) and 1) != 0) {
-                addImage(symptomsViewGroup, DayData.symptomValues[symptomIndex])
+                addImage(symptomsViewGroup, DayData.symptomsValues[symptomIndex])
             }
         }
         if (symptomsViewGroup.isEmpty()) {

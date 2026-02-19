@@ -54,7 +54,7 @@ class DayData {
             R.string.ovulation_pain to R.drawable.ovulation_pain_placeholder,
             R.string.tender_breasts to R.drawable.tender_breasts_placeholder
         )
-        val symptomValues = arrayOf(
+        val symptomsValues = arrayOf(
             R.string.acne to R.drawable.acne_placeholder,
             R.string.bloated to R.drawable.bloated,
             R.string.burning_mouth to R.drawable.burning_mouth_placeholder,
@@ -92,25 +92,86 @@ class DayData {
             R.string.emergency_contraception to R.drawable.emergency_contraception_placeholder
         )
 
-        // Table Name
+        // Table names.
         private const val PERIOD_DATA: String = "Period Data"
-        // Table columns
+        private const val CUSTOM_FIELDS: String = "Custom Fields"
+        private const val CUSTOM_DATA: String = "Custom Data"
+
+        // Primary key field.
         private const val ID: String = "_id"
+
+        // Period Data table columns
         private const val DATE: String = "Date"
-        private const val BLEEDING: String = "Bleeding"
-        private const val MOOD: String = "Mood"
-        private const val SYMPTOMS: String = "Symptoms"
-        // V2 table columns
+        // Bleeding fields
         private const val FLOW_LEVEL: String = "Flow Level"
+        private const val SMALL_CLOTS: String = "Small Clots"
+        private const val BIG_CLOTS: String = "Big Clots"
+        private const val EXCLUDE: String = "Exclude"
+        private const val BLEEDING_TEXT: String = "Bleeding Text"
+        // Mood fields
+        private const val MOOD: String = "Mood"
+        private const val MOOD_TEXT: String = "Mood Text"
+        // Horny field
+        private const val HORNY: String = "Horny"
+        // Pain fields
+        private const val PAIN: String = "Pain"
+        private const val PAIN_TEXT: String = "Pain Text"
+        // Symptoms fields
+        private const val SYMPTOMS: String = "Symptoms"
+        private const val SYMPTOM_TEXT: String = "Symptoms Text"
+        // Sex fields
+        private const val ACTIVITY: String = "Activity"
+        private const val PROTECTION: String = "Protection"
+        private const val SEX_TEXT: String = "Sex Text"
+        // Contraception fields
+        private const val PILL: String = "Pill"
+        private const val PATCH: String = "Patch"
+        private const val IUD: String = "IUD"
+        private const val RING: String = "Ring"
+        private const val IMPLANT: String = "Implant"
+        private const val SHOT: String = "Shot"
+        private const val CONTRACEPTIVE_TEXT: String = "Contraceptive Text"
+        private const val NOTES: String = "Notes"
+        // V3 historical fields
+        private const val BLEEDING: String = "Bleeding"
+
+        // Custom Fields table columns
+        private const val NAME: String = "Name"
+        private const val ACTIVE: String = "Active"
+
+        // Custom Data table columns
+        private const val PERIOD_DATA_ID: String = "Period Data Id"
+        private const val FIELD_NAME_ID: String = "Field Name Id"
+        private const val CUSTOM_TEXT: String = "Custom Text"
 
         override fun createTable(db: SQLiteDatabase) {
             db.execSQL(
                 "CREATE TABLE \"$PERIOD_DATA\" (" +
                     "\"$ID\" INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "\"$DATE\" INTEGER NOT NULL UNIQUE, " +
-                    "\"$BLEEDING\" INTEGER NOT NULL, " +
+                    "\"$FLOW_LEVEL\" INTEGER NOT NULL, " +
+                    "\"$SMALL_CLOTS\" INTEGER NOT NULL, " +
+                    "\"$BIG_CLOTS\" INTEGER NOT NULL, " +
+                    "\"$EXCLUDE\" BOOLEAN NOT NULL, " +
+                    "\"$BLEEDING_TEXT\" TEXT NOT NULL, " +
                     "\"$MOOD\" INTEGER NOT NULL, " +
-                    "\"$SYMPTOMS\" INTEGER NOT NULL" +
+                    "\"$MOOD_TEXT\" TEXT NOT NULL, " +
+                    "\"$HORNY\" INTEGER NOT NULL, " +
+                    "\"$PAIN\" INTEGER NOT NULL, " +
+                    "\"$PAIN_TEXT\" TEXT NOT NULL, " +
+                    "\"$SYMPTOMS\" INTEGER NOT NULL, " +
+                    "\"$SYMPTOM_TEXT\" TEXT NOT NULL, " +
+                    "\"$ACTIVITY\" INTEGER NOT NULL, " +
+                    "\"$PROTECTION\" INTEGER NOT NULL, " +
+                    "\"$SEX_TEXT\" TEXT NOT NULL, " +
+                    "\"$PILL\" BOOLEAN NOT NULL, " +
+                    "\"$PATCH\" INTEGER NOT NULL, " +
+                    "\"$IUD\" BOOLEAN NOT NULL, " +
+                    "\"$RING\" BOOLEAN NOT NULL, " +
+                    "\"$IMPLANT\" BOOLEAN NOT NULL, " +
+                    "\"$SHOT\" BOOLEAN NOT NULL, " +
+                    "\"$CONTRACEPTIVE_TEXT\" TEXT NOT NULL, " +
+                    "\"$NOTES\" TEXT NOT NULL" +
                 ");"
             )
         }

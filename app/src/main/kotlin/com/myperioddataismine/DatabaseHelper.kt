@@ -37,7 +37,7 @@ class DatabaseHelper(context: Context, filename: String, passcode: String) :
     }
 
     companion object {
-        const val DB_VERSION: Int = 3
+        const val DB_VERSION: Int = 4
         const val MINIMUM_DB_VERSION: Int = 2
     }
 }
