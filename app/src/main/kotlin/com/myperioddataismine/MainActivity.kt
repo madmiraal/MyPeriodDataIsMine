@@ -148,14 +148,70 @@ class MainActivity : AppCompatActivity() {
         viewDayData()
     }
 
-    fun editBleeding() {}
-    fun editMoods() {}
-    fun editHorny() {}
-    fun editPains() {}
-    fun editSymptoms() {}
-    fun editSex() {}
-    fun editContraception() {}
-    fun editNotes() {}
+    fun editBleeding() {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace(R.id.main_container, EditBleedingFragment())
+            addToBackStack(null)
+        }
+    }
+
+    fun editMoods() {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace(R.id.main_container, EditMoodsFragment())
+            addToBackStack(null)
+        }
+    }
+
+    fun editHorny() {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace(R.id.main_container, EditHornyFragment())
+            addToBackStack(null)
+        }
+    }
+
+    fun editPains() {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace(R.id.main_container, EditPainsFragment())
+            addToBackStack(null)
+        }
+    }
+
+    fun editSymptoms() {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace(R.id.main_container, EditSymptomsFragment())
+            addToBackStack(null)
+        }
+    }
+
+    fun editSex() {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace(R.id.main_container, EditSexFragment())
+            addToBackStack(null)
+        }
+    }
+
+    fun editContraception() {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace(R.id.main_container, EditContraceptionFragment())
+            addToBackStack(null)
+        }
+    }
+
+    fun editNotes() {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace(R.id.main_container, EditNotesFragment())
+            addToBackStack(null)
+        }
+    }
+
 
     fun back() {
         supportFragmentManager.popBackStack()
