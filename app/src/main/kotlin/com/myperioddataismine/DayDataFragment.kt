@@ -31,7 +31,7 @@ class DayDataFragment : Fragment(R.layout.day_data_fragment) {
         val symptomsLayout = view.findViewById<FlexboxLayout>(R.id.symptoms)
 
         setDate(view, dayData.date)
-        setFlowLevel(flowLevelLayout, dayData.flowLevel)
+        setFlowLevel(flowLevelLayout, dayData.bleedingFlowLevel)
         setMoods(moodsLayout, dayData.moods)
         setSymptoms(symptomsLayout, dayData.symptoms)
 
@@ -42,7 +42,7 @@ class DayDataFragment : Fragment(R.layout.day_data_fragment) {
             nextIcon.setOnClickListener { mainActivity.viewNextDay() }
         }
         flowLevelLayout.setOnClickListener {
-            mainActivity.editField(DayData.Field.FlowLevel, dayData.flowLevel)
+            mainActivity.editField(DayData.Field.FlowLevel, dayData.bleedingFlowLevel)
         }
         moodsLayout.setOnClickListener {
             mainActivity.editField(DayData.Field.Moods, dayData.moods)
