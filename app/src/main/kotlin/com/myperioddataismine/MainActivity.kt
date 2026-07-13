@@ -148,29 +148,14 @@ class MainActivity : AppCompatActivity() {
         viewDayData()
     }
 
-    fun editField(field: DayData.Field, currentValue: Int) {
-        val editFieldFragment = EditFieldFragment()
-        val bundle = Bundle()
-        bundle.putSerializable(EditFieldFragment.FIELD, field)
-        bundle.putInt(EditFieldFragment.VALUE, currentValue)
-        editFieldFragment.arguments = bundle
-        supportFragmentManager.commit {
-            setReorderingAllowed(true)
-            replace(R.id.main_container, editFieldFragment)
-            addToBackStack(null)
-        }
-    }
-
-    fun saveField(field: DayData.Field, value: Int) {
-        val dayData = viewModel.getDayData()
-        when (field) {
-            DayData.Field.FlowLevel -> dayData.bleedingFlowLevel = value
-            DayData.Field.Moods -> dayData.moods = value
-            DayData.Field.Symptoms -> dayData.symptoms = value
-        }
-        viewModel.saveDayData(dayData)
-        back()
-    }
+    fun editBleeding() {}
+    fun editMoods() {}
+    fun editHorny() {}
+    fun editPains() {}
+    fun editSymptoms() {}
+    fun editSex() {}
+    fun editContraception() {}
+    fun editNotes() {}
 
     fun back() {
         supportFragmentManager.popBackStack()
